@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import sk.tuke.gamestudio.entity.Score;
 import sk.tuke.gamestudio.minesweeper.core.Field;
 import sk.tuke.gamestudio.minesweeper.core.GameState;
@@ -33,7 +34,8 @@ public class ConsoleUI implements UserInterface {
     /**
      * object for accessing the persistent storage of player score
      */
-    final private ScoreService scoreService = new ScoreServiceJDBC();
+    @Autowired
+    private ScoreService scoreService;
 
     private Settings setting;
 
