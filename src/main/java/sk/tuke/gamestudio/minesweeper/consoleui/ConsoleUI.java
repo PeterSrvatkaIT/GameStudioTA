@@ -13,8 +13,10 @@ import sk.tuke.gamestudio.entity.Score;
 import sk.tuke.gamestudio.minesweeper.core.Field;
 import sk.tuke.gamestudio.minesweeper.core.GameState;
 import sk.tuke.gamestudio.minesweeper.core.Tile;
+import sk.tuke.gamestudio.service.CommentService;
+import sk.tuke.gamestudio.service.RatingService;
 import sk.tuke.gamestudio.service.ScoreService;
-import sk.tuke.gamestudio.service.ScoreServiceJDBC;
+
 
 /**
  * Console user interface.
@@ -36,6 +38,12 @@ public class ConsoleUI implements UserInterface {
      */
     @Autowired
     private ScoreService scoreService;
+
+    @Autowired
+    private RatingService ratingService;
+
+    @Autowired
+    private CommentService commentService;
 
     private Settings setting;
 
@@ -86,7 +94,7 @@ public class ConsoleUI implements UserInterface {
                 play();
 
 
-//                Minesweeper.getInstance().setSetting(s);
+
                 this.field = new Field(s.getRowCount(), s.getColumnCount(), s.getMineCount());
             } catch (NumberFormatException e) {
 
